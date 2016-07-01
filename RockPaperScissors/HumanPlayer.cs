@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class HumanPlayer : IPlayer
+    class HumanPlayer : IPlayer 
     {
         int getNextMove()
         {
