@@ -10,11 +10,11 @@ namespace RockPaperScissors
     {
         static Dictionary<string, IPlayer> AIPlayers = new Dictionary<string, IPlayer>()
         {
-            // TODO:
+            // TODO: each AI ges own class
             // Add AIs by filling in lines like the ones below
-            //{ "Random 1", new RandomAI() },
-            //{ "Random 2", new RandomAI() },
-            //{ "Other", new OtherAI() },
+            { "Bozo AI", new RandomAI() },
+            { "Stubborn", new StubbornAI() },
+            { "Shorty AI", new ShortAttentionAI() },
             //{ "YetAnother", new YetAnotherAI() },
         };
 
@@ -190,7 +190,7 @@ namespace RockPaperScissors
                     ties++;
                 }
 
-                Console.WriteLine("{0}: {1}\t{2}: {3}\tTies: {4}\n", chosenAI1, ai1Wins, chosenAI2, ai2Wins, ties);
+                Console.WriteLine("\n{0}: {1}\t{2}: {3}\tTies: {4}\n", chosenAI1, ai1Wins, chosenAI2, ai2Wins, ties);
 
             }
         }
