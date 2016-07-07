@@ -13,40 +13,56 @@ namespace RockPaperScissors
             // TODO: each AI ges own class
             // Add AIs by filling in lines like the ones below
             { "Bozo AI", new RandomAI() },
-            { "Stubborn", new StubbornAI() },
+            { "StubbyAI", new StubbornAI() },
             { "Shorty AI", new ShortAttentionAI() },
             //{ "YetAnother", new YetAnotherAI() },
         };
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Rock, Paper, Scissors!");
+
             if (AIPlayers.Count < 1)
             {
                 Console.WriteLine("No AI players exist!");
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-            while (true)
+
+            bool success = true;
+            while (success)
             {
                 Console.WriteLine("\n1. Human vs AI");
                 Console.WriteLine("2. AI vs AI");
                 Console.WriteLine("3. Quit");
                 Console.Write("> ");
-                int choice = Convert.ToInt32(Console.ReadLine());
 
-                if (choice == 1)
+
+                try
                 {
-                    HumanVsAI();
+                    int choice = int.Parse(Console.ReadLine());
+
+                    if (choice == 1)
+                    {
+                        HumanVsAI();
+                    }
+                    else if (choice == 2)
+                    {
+                        AIVsAI();
+                    }
+                    else if (choice == 3)
+                    {
+                        break;
+                    }
+                    else Console.WriteLine("Did not recognize selection");
+
                 }
-                else if (choice == 2)
+                catch (FormatException ex)
                 {
-                    AIVsAI();
+                    Console.WriteLine(ex);
+                    Console.WriteLine("Must select number 1-3");
                 }
-                else if (choice == 3)
-                {
-                    break;
-                }
-            }
+             }
         }
 
         static string MoveToString(int choice)
